@@ -1,0 +1,7 @@
+.gitignore
+.tmp.drivedownload
+node_modules
+img
+schemes
+test1.backup
+test2.backup
