@@ -176,4 +176,9 @@ ReduxClusterModule.functions = {
 	hasher: hasher,
 };
 
+ReduxClusterModule.Lodash = Lodash;
+ReduxClusterModule.SocketIOClient = SocketIOClient;
+ReduxClusterModule.Crypto = Crypto;
+ReduxClusterModule.Redux = Redux;
+
 module.exports = ReduxClusterModule;
