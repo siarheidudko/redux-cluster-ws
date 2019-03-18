@@ -10,16 +10,17 @@
 
 var ReduxCluster = require('redux-cluster'),
 	Cluster = require('cluster'),
-	Lodash = require('lodash');
+	Lodash = require('lodash'),
+	Http = require('http');
 	
 	
 var Test = ReduxCluster.createStore(editProcessStorage);
 require('./index.js').server(Test);
 
 if(Cluster.isMaster){
-	Test.createWSServer({host: "0.0.0.0", port: 8888, logins:{test2:'123456'}});
-}
-	
+	let _server = new Http.createServer(undefined).setTimeout(30000).listen(8888, "0.0.0.0"); 
+	Test.createWSServer({server: _server, logins:{test2:'123456'}});
+}	
 function editProcessStorage(state = {version:''}, action){ 
 	try {
 		switch (action.type){

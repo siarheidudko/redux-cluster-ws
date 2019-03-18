@@ -52,8 +52,9 @@ Test2.createWSServer({
    
 Options <Object> Required:  
   
-- host <String> - hostname or ip-address
-- port <Integer> - port (optional, default 10002) 
+- server <Server> - instance of http.Server or https.Server (or use host and port option) 
+- host <String> - hostname or ip-address (or use server option)
+- port <Integer> - port (optional, default 10002, or use server option) 
 - logins <Object> - login - password pairs as `{login1:password1, login2:password2}`. 
 - ssl <Object> - path to server certificate (if use as https, default use http). 
   

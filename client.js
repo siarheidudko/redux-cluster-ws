@@ -99,9 +99,9 @@ function createWSClient(store, config){	//функция создания кли
 		try {
 			let socket;
 			if(self.config.host.toLowerCase().indexOf('https://') !== -1){
-				socket = new SocketIOClient.connect(self.config.host + ':' + self.config.port, { secure: true, transports: ['websocket']});
+				socket = new SocketIOClient.connect(self.config.host + ':' + self.config.port, { secure: true, transports: ['websocket'], path: "/redux-cluster-"+self.store.RCHash});
 			} else {
-				socket = new SocketIOClient.connect(self.config.host + ':' + self.config.port, {transports: ['websocket']});
+				socket = new SocketIOClient.connect(self.config.host + ':' + self.config.port, {transports: ['websocket'], path: "/redux-cluster-"+self.store.RCHash});
 			}
 			self.socket = socket;
 			socket.on('connect_error', (error) => {
