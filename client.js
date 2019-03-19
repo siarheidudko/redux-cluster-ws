@@ -84,17 +84,23 @@ function createWSClient(store, config){	//функция создания кли
 		throw new Error('Config requires server address!');
 	} else if((typeof(config.port) !== 'string') && (typeof(config.port) !== 'number')) {
 		config.port = 10002;
-	} else if(typeof(config.login) !== 'string') {
-		throw new Error('Config requires login for server authorization!');
-	} else if(typeof(config.password) !== 'string') {
-		throw new Error('Config requires password for server authorization!');
 	}
 	self.store = store;
+	if(!((typeof(config.login) === 'string') || (self.store && self.store.client && self.store.client.login))) {
+		throw new Error('Config requires login for server authorization!');
+	} else if(!((typeof(config.password) === 'string') || (self.store && self.store.client && self.store.client.password))) {
+		throw new Error('Config requires password for server authorization!');
+	}
 	self.store.dispatchNEW = self.store.dispatch;	//переопределяю dispatch
 	delete self.store.dispatch;
 	self.config = Object.assign(config);
-	self.login = hasher("REDUX_CLUSTER"+self.config.login);
-	self.password = hasher("REDUX_CLUSTER"+self.config.password);
+	if(self.store && self.store.client){	//подтягиваю логин и пароль из store (для реализации кастомной авторизации)
+		if(self.store.client.login){ self.login = self.store.client.login; }
+		if(self.store.client.password){ self.password = self.store.client.password; }
+	} else {
+		self.login = hasher("REDUX_CLUSTER"+self.config.login);
+		self.password = hasher("REDUX_CLUSTER"+self.config.password);
+	}
 	self.reconnect = function(){
 		try {
 			let socket;
