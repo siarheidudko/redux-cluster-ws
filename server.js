@@ -20,7 +20,8 @@ function ReduxClusterWsWrapper(store){
 	self.store = store;		//постоянная ссылка на магазин
 	self.uid = ReduxCluster.functions.generateUID();
 	self.ip2ban = {};	//база данных блокнутых ip
-	self.ip2banTimeout = 10800000;
+	self.ip2banAttemp = 15; //количество попыток ввода пароля
+	self.ip2banTimeout = 10800000;	//время блокировки в мс, при срабатывании лимита попыток
 	self.database = {};	//база данных авторизации
 	self.sockets = {};	//авторизованные сокеты
 	self.timeout = 30000;
@@ -101,7 +102,7 @@ function ReduxClusterWsWrapper(store){
 			try{
 				let thisSocketAddressArr = self.io.sockets.sockets[socket.id].handshake.address.split(':');
 				let _i2bTest = ReduxCluster.functions.replacer(thisSocketAddressArr[thisSocketAddressArr.length-1], true);
-				if((typeof(_i2bTest) === 'undefined') || (typeof(self.ip2ban[_i2bTest]) === 'undefined') || ((typeof(self.ip2ban[_i2bTest]) === 'object') && ((self.ip2ban[_i2bTest].count < 5) || ((self.ip2ban[_i2bTest].time+self.ip2banTimeout) < Date.now())))){
+				if((typeof(_i2bTest) === 'undefined') || (typeof(self.ip2ban[_i2bTest]) === 'undefined') || ((typeof(self.ip2ban[_i2bTest]) === 'object') && ((self.ip2ban[_i2bTest].count < self.ip2banAttemp) || ((self.ip2ban[_i2bTest].time+self.ip2banTimeout) < Date.now())))){
 					socket.on('RCMSG', function(data){
 						if(data._hash === self.store.RCHash){	//проверяю что сообщение привязано к текущему хранилищу
 							switch(data._msg){
@@ -130,7 +131,7 @@ function ReduxClusterWsWrapper(store){
 											let _tempCount = 0;
 											if(typeof(self.ip2ban[_i2bTest]) === 'object'){ 
 												_tempCount = self.ip2ban[_i2bTest].count; 
-												if(_tempCount >= 5) { _tempCount = 0; } //по таймауту сбрасываю счетчик попыток
+												if(_tempCount >= self.ip2banAttemp) { _tempCount = 0; } //по таймауту сбрасываю счетчик попыток
 											}
 											self.ip2ban[_i2bTest] = {time: Date.now(), count:_tempCount+1}; 
 										}
