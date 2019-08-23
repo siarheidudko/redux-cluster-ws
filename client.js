@@ -168,7 +168,9 @@ function createWSClient(store, config){	//функция создания кли
 function createStore(_reducer){		//функция создания хранилища
 	let _ReduxCluster = new ReduxCluster(_reducer);		//создаю экземпляр хранилища
 	_ReduxCluster.createWSClient = function(_settings){	//подключаю объект создания клиента
-		if(_ReduxCluster.role.indexOf("client") === -1) { _ReduxCluster.role.push("client"); }
+		if(_ReduxCluster.role.indexOf("client") === -1) { _ReduxCluster.role.push("client"); } else {
+			throw new Error('One storage cannot be connected to two servers at the same time.');
+		}
 		_ReduxCluster.connected = false;
 		return new createWSClient(_ReduxCluster, _settings);
 	}
