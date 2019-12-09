@@ -28,8 +28,6 @@ function ReduxClusterWsWrapper(store){
 	self.config = {host: '0.0.0.0', port: 10002};	//дефолтные настройки сервера
 	if((store instanceof ReduxCluster.createStore))	{	//проверяю переданный объект
 		throw new Error('Argument requires redux-cluster store!');
-	} else if (store.version < '1.5'){
-		throw new Error('Please update you redux-cluster library up to version 1.5.0 or great! '+self.store.homepage);
 	}
 	store.createWSServer = function(config){
 		self.ip2banGCStart = setInterval(function(){
