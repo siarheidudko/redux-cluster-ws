@@ -7,7 +7,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/siarheidudko/redux-cluster-ws.svg)
 ![GitHub release](https://img.shields.io/github/release/siarheidudko/redux-cluster-ws.svg)
 
-Modern WebSocket-based state synchronization library built on top of [Redux-Cluster](https://github.com/sergdudko/redux-cluster). Enables real-time Redux store synchronization between Node.js servers and clients (both Node.js and browser) using native WebSocket connections.
+Modern WebSocket-based state synchronization library built on top of [Redux-Cluster](https://github.com/siarheidudko/redux-cluster). Enables real-time Redux store synchronization between Node.js servers and clients (both Node.js and browser) using native WebSocket connections.
 
 ## ✨ Features
 
@@ -362,8 +362,6 @@ Redux-Cluster-WS v2.0 offers significant performance improvements:
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
-
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/amazing-feature`)
 3. Commit your changes (`git commit -m 'Add amazing feature'`)
@@ -372,20 +370,25 @@ Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md)
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT License - see [LICENSE](./LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## 🆘 Support
 
-- [Redux-Cluster](https://github.com/sergdudko/redux-cluster) - Core synchronization engine
-- [Redux](https://redux.js.org/) - Predictable state container
-- [WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket) - Native WebSocket API
-
-## 📞 Support
-
-- 📧 **Issues**: [GitHub Issues](https://github.com/siarheidudko/redux-cluster-ws/issues)
+- 📝 **Issues**: [GitHub Issues](https://github.com/siarheidudko/redux-cluster-ws/issues)
 - 💬 **Discussions**: [GitHub Discussions](https://github.com/siarheidudko/redux-cluster-ws/discussions)
-- 📚 **Documentation**: [Wiki](https://github.com/siarheidudko/redux-cluster-ws/wiki)
+- 📧 **Email**: [siarhei@dudko.dev](mailto:siarhei@dudko.dev)
+
+## 💝 Support This Project
+
+If Redux Cluster helps you build amazing applications, consider supporting its development:
+
+- ☕ **[Buy me a coffee](https://www.buymeacoffee.com/dudko.dev)**
+- 💳 **[PayPal](https://paypal.me/dudkodev)**
+- 🎯 **[Patreon](https://patreon.com/dudko_dev)**
+- 🌐 **[More options](http://dudko.dev/donate)**
+
+Your support helps maintain and improve Redux Cluster for the entire community!
 
 ---
 
-Made with ❤️ for the Redux community
+**Made with ❤️ by [Siarhei Dudko](https://github.com/siarheidudko)**
