@@ -1,8 +1,40 @@
+# Source files (only include dist/)
+src/
+tests/
+*.md
+*.txt
+
+# Build configuration
+tsconfig*.json
+.github/
+.git/
 .gitignore
+
+# Development files
+node_modules/
 .tmp.drivedownload
-node_modules
-img
-schemes
+img/
+schemes/
 test1.backup
 test2.backup
 test.html
+ignoreUpdatesModules.json
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+*.backup
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env*
