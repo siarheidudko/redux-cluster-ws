@@ -1,10 +1,54 @@
 {
   "name": "redux-cluster-ws",
-  "version": "1.4.0",
-  "description": "SocketIO client/server wrapper",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "WebSocket client/server wrapper for redux-cluster with TypeScript support",
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts", 
+        "default": "./dist/cjs/index.js"
+      }
+    },
+    "./server": {
+      "import": {
+        "types": "./dist/esm/server.d.ts",
+        "default": "./dist/esm/server.js"
+      },
+      "require": {
+        "types": "./dist/cjs/server.d.ts",
+        "default": "./dist/cjs/server.js"
+      }
+    },
+    "./client": {
+      "import": {
+        "types": "./dist/esm/client.d.ts", 
+        "default": "./dist/esm/client.js"
+      },
+      "require": {
+        "types": "./dist/cjs/client.d.ts",
+        "default": "./dist/cjs/client.js"
+      }
+    }
+  },
   "scripts": {
-    "build": "webpack --optimize-minimize --mode production"
+    "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run build:pkg",
+    "build:esm": "tsc --module ES2022 --outDir dist/esm --target ES2022 --declaration",
+    "build:cjs": "tsc -p tsconfig.cjs.json --declaration",
+    "build:pkg": "echo '{\"type\":\"commonjs\"}' > dist/cjs/package.json",
+    "clean": "rm -rf dist",
+    "test": "npm run test:node && npm run test:browser",
+    "test:node": "node tests/node.test.cjs",
+    "test:browser": "npm run build && node tests/browser/server.js",
+    "dev": "tsc --watch --outDir dist/esm",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -14,28 +58,53 @@
     "redux",
     "cluster",
     "redux-cluster",
-    "store"
+    "store",
+    "websocket",
+    "typescript"
   ],
-  "author": "Siarhei Dudko",
+  "author": {
+    "name": "Siarhei Dudko",
+    "email": "siarhei@dudko.dev",
+    "url": "https://dudko.dev"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/siarheidudko/redux-cluster-ws/issues"
   },
   "homepage": "https://github.com/siarheidudko/redux-cluster-ws#readme",
+  "funding": [
+    {
+      "type": "individual",
+      "url": "http://dudko.dev/donate"
+    },
+    {
+      "type": "buymeacoffee",
+      "url": "https://www.buymeacoffee.com/dudko.dev"
+    },
+    {
+      "type": "paypal",
+      "url": "https://paypal.me/dudkodev"
+    },
+    {
+      "type": "patreon",
+      "url": "https://patreon.com/dudko_dev"
+    }
+  ],
   "dependencies": {
-    "@sergdudko/objectstream": "^1.6.0",
-    "crypto-browserify": "^3.12.0",
-    "lodash": "^4.17.15",
-    "redux": "^4.0.4",
-    "redux-cluster": "^1.10.0",
-    "socket.io": "^2.3.0",
-    "socket.io-client": "^2.3.0"
+    "@sergdudko/objectstream": "^3.2.26",
+    "protoobject": "^1.1.30",
+    "redux": "^5.0.1",
+    "redux-cluster": "^2.0.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-loader": "^7.1.5",
-    "colors": "^1.4.0",
-    "webpack": "^4.39.2",
-    "webpack-cli": "^3.3.7"
+    "@types/node": "^20.12.7",
+    "@types/ws": "^8.5.10",
+    "typescript": "^5.4.5"
+  },
+  "peerDependencies": {
+    "ws": "^8.18.3"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }
