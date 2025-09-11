@@ -1,10 +1,11 @@
 ﻿
 # Redux-Cluster-WS v2.0
 
-[![npm version](https://badge.fury.io/js/redux-cluster-ws.svg)](https://badge.fury.io/js/redux-cluster-ws)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.4.5-blue.svg)](https://www.typescriptlang.org/)
-[![Build Status](https://github.com/siarheidudko/redux-cluster-ws/workflows/CI/badge.svg)](https://github.com/siarheidudko/redux-cluster-ws/actions)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![npm](https://img.shields.io/npm/v/redux-cluster-ws.svg)](https://www.npmjs.com/package/redux-cluster-ws)
+[![npm](https://img.shields.io/npm/dy/redux-cluster-ws.svg)](https://www.npmjs.com/package/redux-cluster-ws)
+[![NpmLicense](https://img.shields.io/npm/l/redux-cluster-ws.svg)](https://www.npmjs.com/package/redux-cluster-ws)
+![GitHub last commit](https://img.shields.io/github/last-commit/siarheidudko/redux-cluster-ws.svg)
+![GitHub release](https://img.shields.io/github/release/siarheidudko/redux-cluster-ws.svg)
 
 Modern WebSocket-based state synchronization library built on top of [Redux-Cluster](https://github.com/sergdudko/redux-cluster). Enables real-time Redux store synchronization between Node.js servers and clients (both Node.js and browser) using native WebSocket connections.
 
