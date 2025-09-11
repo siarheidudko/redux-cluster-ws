@@ -102,7 +102,7 @@ console.log(colors.blue("Starting WebSocket server..."));
 
 try {
   serverStore.createWSServer({
-    host: "127.0.0.1",
+    host: "0.0.0.0",
     port: 8888,
     logins: {
       test: "password123",
@@ -117,7 +117,7 @@ try {
 
     try {
       clientStore.createWSClient({
-        host: "ws://127.0.0.1",
+        host: "ws://localhost",
         port: 8888,
         login: "test",
         password: "password123",
@@ -205,9 +205,9 @@ try {
               console.log(colors.red("\\n❌ Some tests failed!"));
               process.exit(1);
             }
-          }, 1000);
-        }, 1000);
-      }, 1000);
+          }, 2000);
+        }, 2000);
+      }, 2000);
     } catch (error) {
       console.log(colors.red(`Client connection error: ${error.message}`));
       process.exit(1);

@@ -1,9 +1,4 @@
-import {
-  createStore as createReduxStore,
-  Reducer,
-  AnyAction,
-  Dispatch,
-} from "redux";
+import { createStore as createReduxStore, Reducer, AnyAction } from "redux";
 import {
   WSClientConfig,
   ReduxClusterStore,
@@ -25,7 +20,9 @@ const WebSocketClass = (() => {
     return global.WebSocket;
   }
   try {
-    return require("ws");
+    // Use dynamic import for Node.js environments
+    const wsModule = eval("require")("ws");
+    return wsModule;
   } catch {
     throw new Error("WebSocket implementation not found");
   }
@@ -37,7 +34,7 @@ export class ReduxCluster<S = any, A extends AnyAction = AnyAction>
   public stderr: (message: string) => void = console.error;
   public role: string[] = [];
   public mode: "action" | "snapshot" = "action";
-  public connected: boolean = true;
+  public connected: boolean = false;
   public resync: number = 1000;
   public RCHash: string;
   public version: string;
@@ -71,7 +68,7 @@ export class ReduxCluster<S = any, A extends AnyAction = AnyAction>
       } else {
         throw new Error("The returned value is not an object.");
       }
-    } catch (error) {
+    } catch {
       this.defaultState = {} as S;
     }
 
@@ -101,7 +98,7 @@ export class ReduxCluster<S = any, A extends AnyAction = AnyAction>
     return this.store.subscribe(listener);
   }
 
-  public replaceReducer(nextReducer: Reducer<S, A>): void {
+  public replaceReducer(_nextReducer: Reducer<S, A>): void {
     throw new Error("replaceReducer is not supported in ReduxCluster");
   }
 
@@ -179,11 +176,7 @@ export class ReduxClusterWSClientWrapper implements ReduxClusterWSClient {
 
         this.ws.onmessage = (event: any) => {
           try {
-            const data =
-              typeof event.data === "string"
-                ? event.data
-                : event.data.toString();
-            const message: ReduxClusterMessage = JSON.parse(data);
+            const message = JSON.parse(event.data);
             this.handleMessage(message);
           } catch (error) {
             this.store.stderr(
@@ -217,7 +210,7 @@ export class ReduxClusterWSClientWrapper implements ReduxClusterWSClient {
     const protocol = this.config.host.toLowerCase().includes("https://")
       ? "wss:"
       : "ws:";
-    const host = this.config.host.replace(/^https?:\/\//, "");
+    const host = this.config.host.replace(/^(https?|wss?):\/\//, "");
     const path = `/redux-cluster-${this.store.RCHash}`;
 
     return `${protocol}//${host}:${this.config.port}${path}`;
@@ -323,6 +316,20 @@ export function client<S = any>(
 ): ReduxClusterStore<S> {
   // Add createWSClient method to existing redux-cluster store
   if (!store.createWSClient) {
+    // Get the current reducer
+    const originalReducer = (store as any)._reducer || ((state: S) => state);
+
+    // Create a new reducer that handles REDUX_CLUSTER_SYNC
+    const syncReducer = (state: S | undefined, action: any): S => {
+      if (action.type === "REDUX_CLUSTER_SYNC") {
+        return deepClone(action.payload);
+      }
+      return originalReducer(state, action);
+    };
+
+    // Replace the reducer
+    store.replaceReducer(syncReducer);
+
     store.createWSClient = (config: WSClientConfig) => {
       return new ReduxClusterWSClientWrapper(store, config);
     };

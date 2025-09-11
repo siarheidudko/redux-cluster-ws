@@ -18,6 +18,7 @@ schemes/
 test1.backup
 test2.backup
 test.html
+ignoreUpdatesModules.json
 
 # IDE and OS files
 .vscode/

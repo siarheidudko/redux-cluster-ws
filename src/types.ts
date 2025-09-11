@@ -1,4 +1,4 @@
-import type { Store, Reducer, Action, AnyAction, Dispatch } from "redux";
+import type { Reducer, Action, AnyAction, Dispatch } from "redux";
 
 export interface WSServerConfig {
   host?: string;

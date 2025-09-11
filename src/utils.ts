@@ -1,4 +1,4 @@
-import { createHash } from "crypto";
+import { createHash, randomUUID } from "crypto";
 
 /**
  * Hash a string using SHA-1
@@ -30,16 +30,27 @@ export function replacer(
 }
 
 /**
- * Generate a unique identifier
+ * Generate a unique identifier using crypto.randomUUID
+ * Supports Node.js 14.17+ and modern browsers (Chrome 92+, Firefox 95+, Safari 15.4+)
  */
 export function generateUID(): string {
+  // Use crypto.randomUUID if available (Node.js 14.17+ and modern browsers)
+  if (typeof randomUUID === "function") {
+    return randomUUID();
+  }
+
+  // Browser global crypto.randomUUID
+  if (typeof crypto !== "undefined" && crypto.randomUUID) {
+    return crypto.randomUUID();
+  }
+
+  // Final fallback for very old environments
   return (
     Math.random().toString(36).substring(2, 15) +
     Math.random().toString(36).substring(2, 15) +
     Date.now().toString(36)
   );
 }
-
 /**
  * Deep clone an object
  */
@@ -59,7 +70,7 @@ export function deepClone<T>(obj: T): T {
   if (typeof obj === "object") {
     const cloned = {} as T;
     for (const key in obj) {
-      if (obj.hasOwnProperty(key)) {
+      if (Object.prototype.hasOwnProperty.call(obj, key)) {
         cloned[key] = deepClone(obj[key]);
       }
     }

@@ -7,7 +7,6 @@ import {
   ReduxClusterStore,
   ReduxClusterMessage,
   WSConnection,
-  BanInfo,
   AuthDatabase,
   IPBanDatabase,
   ReduxClusterWSServer,
@@ -94,6 +93,23 @@ export class ReduxClusterWSServerWrapper implements ReduxClusterWSServer {
         this.sendToAll();
       }
     });
+
+    // For action mode, override dispatch to send individual actions
+    if (this.store.mode === "action") {
+      const originalDispatch = this.store.dispatch;
+      this.store.dispatch = (action: any) => {
+        const result = originalDispatch(action);
+        // Send the action to all connected clients
+        if (action.type !== "@@INIT" && action.type !== "REDUX_CLUSTER_SYNC") {
+          this.sendToAll({
+            _msg: "REDUX_CLUSTER_MSGTOWORKER",
+            _hash: this.store.RCHash,
+            _action: action,
+          });
+        }
+        return result;
+      };
+    }
 
     // Add server role
     if (!this.store.role.includes("server")) {
@@ -303,7 +319,7 @@ export class ReduxClusterWSServerWrapper implements ReduxClusterWSServer {
     if (connection) {
       try {
         connection.ws.close();
-      } catch (error) {
+      } catch {
         // Ignore errors when closing
       }
       this.connections.delete(connectionId);
