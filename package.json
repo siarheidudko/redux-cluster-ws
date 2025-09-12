@@ -76,7 +76,12 @@
     "url": "https://github.com/siarheidudko/redux-cluster-ws/issues"
   },
   "homepage": "https://github.com/siarheidudko/redux-cluster-ws#readme",
-  "funding": [
+    "files": [
+      "dist",
+      "README.md",
+      "LICENSE"
+    ],
+    "funding": [
     {
       "type": "individual",
       "url": "http://dudko.dev/donate"
