@@ -4,6 +4,7 @@
     "module": "CommonJS",
     "outDir": "./dist/cjs",
     "target": "ES2018",
-    "declaration": true
+    "declaration": false,
+    "sourceMap": false
   }
 }

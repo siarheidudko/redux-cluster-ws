@@ -5,44 +5,48 @@
   "type": "module",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
-  "types": "./dist/esm/index.d.ts",
+  "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/esm/index.d.ts",
+        "types": "./dist/types/index.d.ts",
         "default": "./dist/esm/index.js"
       },
       "require": {
-        "types": "./dist/cjs/index.d.ts",
+        "types": "./dist/types/index.d.ts",
         "default": "./dist/cjs/index.js"
       }
     },
     "./server": {
       "import": {
-        "types": "./dist/esm/server.d.ts",
+        "types": "./dist/types/server.d.ts",
         "default": "./dist/esm/server.js"
       },
       "require": {
-        "types": "./dist/cjs/server.d.ts",
+        "types": "./dist/types/server.d.ts",
         "default": "./dist/cjs/server.js"
       }
     },
     "./client": {
       "import": {
-        "types": "./dist/esm/client.d.ts",
+        "types": "./dist/types/client.d.ts",
         "default": "./dist/esm/client.js"
       },
       "require": {
-        "types": "./dist/cjs/client.d.ts",
+        "types": "./dist/types/client.d.ts",
         "default": "./dist/cjs/client.js"
       }
     }
   },
   "scripts": {
-    "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run build:pkg",
-    "build:esm": "tsc --module ES2022 --outDir dist/esm --target ES2022 --declaration",
-    "build:cjs": "tsc -p tsconfig.cjs.json --declaration",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run build:types && npm run build:pkg",
+    "build:esm": "tsc --module ES2020 --outDir dist/esm --target ES2020 --declaration false",
+    "build:cjs": "tsc -p tsconfig.cjs.json --declaration false",
+    "build:types": "tsc --module ES2020 --outDir dist/types --target ES2020 --declaration true --emitDeclarationOnly",
     "build:pkg": "echo '{\"type\":\"commonjs\"}' > dist/cjs/package.json",
+    "dev": "npm run clean && npm run build:esm:dev && npm run build:cjs:dev && npm run build:types",
+    "build:esm:dev": "tsc --module ES2020 --outDir dist/esm --target ES2020 --declaration false --sourceMap",
+    "build:cjs:dev": "tsc -p tsconfig.cjs.json --declaration false --sourceMap",
     "clean": "rm -rf dist",
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix",
@@ -51,7 +55,6 @@
     "test:basic": "node tests/basic.test.cjs",
     "test:node": "node tests/node.test.cjs",
     "test:browser": "npm run build && node tests/browser/server.js",
-    "dev": "tsc --watch --outDir dist/esm",
     "prepublishOnly": "npm run build"
   },
   "repository": {

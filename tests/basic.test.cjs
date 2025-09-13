@@ -201,7 +201,7 @@ const fs = require("fs");
 const path = require("path");
 
 runTest("TypeScript declarations should exist", () => {
-  const dtsPath = path.join(__dirname, "../dist/cjs/index.d.ts");
+  const dtsPath = path.join(__dirname, "../dist/types/index.d.ts");
   return fs.existsSync(dtsPath);
 });
 
