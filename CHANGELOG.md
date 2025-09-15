@@ -1,3 +1,8 @@
+# 2.0.4 / 2025-09-15
+
+### :tada: Enhancements
+- Updated dependencies: redux-cluster
+
 # 2.0.3 / 2025-09-14
 
 ### :tada: Enhancements
