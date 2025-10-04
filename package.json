@@ -109,12 +109,12 @@
     "redux-cluster": "^2.0.12"
   },
   "devDependencies": {
-    "@eslint/js": "^9.36.0",
+    "@eslint/js": "^9.37.0",
     "@types/node": "^20.12.7",
     "@types/ws": "^8.18.1",
     "@typescript-eslint/eslint-plugin": "^8.45.0",
     "@typescript-eslint/parser": "^8.45.0",
-    "eslint": "^9.36.0",
+    "eslint": "^9.37.0",
     "globals": "^16.4.0",
     "typescript": "^5.4.5"
   },
