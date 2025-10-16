@@ -1,3 +1,8 @@
+# 2.0.25 / 2025-10-16
+
+### :tada: Enhancements
+- Updated dependencies: protoobject, redux-cluster
+
 # 2.0.24 / 2025-10-15
 
 ### :tada: Enhancements
