@@ -80,7 +80,9 @@
   },
   "homepage": "https://github.com/siarheidudko/redux-cluster-ws#readme",
   "files": [
-    "dist",
+    "dist/esm/**/*.js{,on}",
+    "dist/cjs/**/*.js{,on}",
+    "dist/types/**/*",
     "README.md",
     "LICENSE"
   ],
