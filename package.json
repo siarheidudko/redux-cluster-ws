@@ -40,9 +40,9 @@
   },
   "scripts": {
     "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run build:types && npm run build:pkg",
-    "build:esm": "tsc --module ES2020 --outDir dist/esm --target ES2020 --declaration false",
-    "build:cjs": "tsc -p tsconfig.cjs.json --declaration false",
-    "build:types": "tsc --module ES2020 --outDir dist/types --target ES2020 --declaration true --emitDeclarationOnly",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:types": "tsc --outDir dist/types --declaration true --emitDeclarationOnly",
     "build:pkg": "echo '{\"type\":\"commonjs\"}' > dist/cjs/package.json",
     "dev": "npm run clean && npm run build:esm:dev && npm run build:cjs:dev && npm run build:types",
     "build:esm:dev": "tsc --module ES2020 --outDir dist/esm --target ES2020 --declaration false --sourceMap",
