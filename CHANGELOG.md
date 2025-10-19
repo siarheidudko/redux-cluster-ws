@@ -1,3 +1,13 @@
+# 2.0.29 / 2025-10-18
+
+### :tada: Enhancements
+- Updated dependencies: @eslint/js, eslint
+
+# 2.0.28 / 2025-10-17
+
+### :tada: Enhancements
+- Updated dependencies: @sergdudko/objectstream, protoobject, redux-cluster
+
 # 2.0.25 / 2025-10-16
 
 ### :tada: Enhancements
