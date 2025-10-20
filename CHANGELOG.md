@@ -1,3 +1,8 @@
+# 2.0.31 / 2025-10-20
+
+### :tada: Enhancements
+- Updated dependencies: protoobject
+
 # 2.0.30 / 2025-10-20
 
 ### :tada: Enhancements
