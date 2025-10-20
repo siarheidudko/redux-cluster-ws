@@ -1,3 +1,8 @@
+# 2.0.30 / 2025-10-20
+
+### :tada: Enhancements
+- Updated dependencies: @sergdudko/objectstream, redux-cluster
+
 # 2.0.29 / 2025-10-18
 
 ### :tada: Enhancements
