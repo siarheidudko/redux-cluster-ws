@@ -108,7 +108,7 @@
     "@sergdudko/objectstream": "^4.0.9",
     "protoobject": "^2.1.8",
     "redux": "^5.0.1",
-    "redux-cluster": "^2.0.26"
+    "redux-cluster": "^2.0.27"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.0",
@@ -117,7 +117,7 @@
     "@typescript-eslint/eslint-plugin": "^8.46.2",
     "@typescript-eslint/parser": "^8.46.2",
     "eslint": "^9.39.0",
-    "globals": "^16.4.0",
+    "globals": "^16.5.0",
     "typescript": "^5.4.5"
   },
   "peerDependencies": {
