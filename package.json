@@ -108,14 +108,14 @@
     "@sergdudko/objectstream": "^4.0.17",
     "protoobject": "^2.1.18",
     "redux": "^5.0.1",
-    "redux-cluster": "^2.0.38"
+    "redux-cluster": "^2.0.39"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@types/node": "^20.12.7",
     "@types/ws": "^8.18.1",
-    "@typescript-eslint/eslint-plugin": "^8.48.0",
-    "@typescript-eslint/parser": "^8.48.0",
+    "@typescript-eslint/eslint-plugin": "^8.48.1",
+    "@typescript-eslint/parser": "^8.48.1",
     "eslint": "^9.39.1",
     "globals": "^16.5.0",
     "typescript": "^5.4.5"
