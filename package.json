@@ -1,6 +1,6 @@
 {
   "name": "redux-cluster-ws",
-  "version": "2.0.70",
+  "version": "2.0.71",
   "description": "WebSocket client/server wrapper for redux-cluster with TypeScript support",
   "type": "module",
   "main": "./dist/cjs/index.js",
