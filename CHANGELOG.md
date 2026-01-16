@@ -1,3 +1,8 @@
+# 2.0.80 / 2026-01-16
+
+### :tada: Enhancements
+- Updated dependencies: @sergdudko/objectstream, protoobject
+
 # 2.0.79 / 2026-01-15
 
 ### :tada: Enhancements
