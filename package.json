@@ -105,8 +105,8 @@
     }
   ],
   "dependencies": {
-    "@sergdudko/objectstream": "^4.0.28",
-    "protoobject": "^2.1.29",
+    "@sergdudko/objectstream": "^4.0.29",
+    "protoobject": "^2.1.30",
     "redux": "^5.0.1",
     "redux-cluster": "^2.0.59"
   },
