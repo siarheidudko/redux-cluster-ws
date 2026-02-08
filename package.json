@@ -1,6 +1,6 @@
 {
   "name": "redux-cluster-ws",
-  "version": "2.0.90",
+  "version": "2.0.91",
   "description": "WebSocket client/server wrapper for redux-cluster with TypeScript support",
   "type": "module",
   "main": "./dist/cjs/index.js",
@@ -51,7 +51,7 @@
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix",
     "update": "eval \"$(node -e 'const t = require(`./package.json`);const ignore = require(`./ignoreUpdatesModules.json`);console.log(`npm i ${(Object.keys(t.dependencies || {}).filter((e)=>ignore.base.indexOf(e) === -1).map((e)=>(`${e}@latest`)).join(` `))} --save&&npm i ${(Object.keys(t.devDependencies || {}).filter((e)=>ignore.dev.indexOf(e) === -1).map((e)=>(`${e}@latest`)).join(` `))} --save-dev`);')\"",
-    "test": "npm run test:basic && npm run test:node",
+    "test": "npm run build && npm run test:basic && npm run test:node",
     "test:basic": "node tests/basic.test.cjs",
     "test:node": "node tests/node.test.cjs",
     "test:browser": "npm run build && node tests/browser/server.js",
@@ -105,23 +105,23 @@
     }
   ],
   "dependencies": {
-    "@sergdudko/objectstream": "^4.0.30",
-    "protoobject": "^2.1.31",
+    "@sergdudko/objectstream": "^4.0.31",
+    "protoobject": "^2.1.32",
     "redux": "^5.0.1",
-    "redux-cluster": "^2.0.62"
+    "redux-cluster": "^2.0.63"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
-    "@types/node": "^20.12.7",
+    "@types/node": "^25.2.2",
     "@types/ws": "^8.18.1",
     "@typescript-eslint/eslint-plugin": "^8.54.0",
     "@typescript-eslint/parser": "^8.54.0",
     "eslint": "^9.39.2",
     "globals": "^17.3.0",
-    "typescript": "^5.4.5"
+    "typescript": "^5.9.3"
   },
   "peerDependencies": {
-    "ws": "^8.18.3"
+    "ws": "^8.19.0"
   },
   "engines": {
     "node": ">=16.0.0"
