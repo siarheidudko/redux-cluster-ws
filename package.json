@@ -108,7 +108,7 @@
     "@sergdudko/objectstream": "^4.0.33",
     "protoobject": "^2.1.34",
     "redux": "^5.0.1",
-    "redux-cluster": "^2.0.68"
+    "redux-cluster": "^2.0.69"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
