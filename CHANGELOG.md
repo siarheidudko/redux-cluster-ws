@@ -1,3 +1,8 @@
+# 2.0.104 / 2026-04-13
+
+### :tada: Enhancements
+- Updated dependencies: globals
+
 # 2.0.103 / 2026-04-09
 
 ### :tada: Enhancements
