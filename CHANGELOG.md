@@ -1,3 +1,8 @@
+# 2.0.112 / 2026-05-06
+
+### :tada: Enhancements
+- Updated dependencies: redux-cluster
+
 # 2.0.111 / 2026-05-06
 
 ### :tada: Enhancements
