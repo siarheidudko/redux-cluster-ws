@@ -39,3 +39,6 @@ yarn-error.log*
 # Environment files
 .env*
 examples/
+
+# Claude
+CLAUDE.md
