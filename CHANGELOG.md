@@ -1,3 +1,8 @@
+# 2.0.118 / 2026-06-19
+
+### :tada: Enhancements
+- Updated dependencies: @sergdudko/objectstream, @typescript-eslint/eslint-plugin, @typescript-eslint/parser, protoobject, redux-cluster
+
 # 2.0.117 / 2026-06-12
 
 ### :tada: Enhancements
