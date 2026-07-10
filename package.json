@@ -1,6 +1,6 @@
 {
   "name": "redux-cluster-ws",
-  "version": "2.0.120",
+  "version": "2.0.121",
   "description": "WebSocket client/server wrapper for redux-cluster with TypeScript support",
   "type": "module",
   "main": "./dist/cjs/index.js",
@@ -105,18 +105,18 @@
     }
   ],
   "dependencies": {
-    "@sergdudko/objectstream": "^4.0.41",
-    "protoobject": "^2.1.43",
+    "@sergdudko/objectstream": "^4.0.42",
+    "protoobject": "^2.1.44",
     "redux": "^5.0.1",
-    "redux-cluster": "^2.0.85"
+    "redux-cluster": "^2.0.86"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/node": "^25.2.2",
     "@types/ws": "^8.18.1",
-    "@typescript-eslint/eslint-plugin": "^8.62.1",
-    "@typescript-eslint/parser": "^8.62.1",
-    "eslint": "^10.6.0",
+    "@typescript-eslint/eslint-plugin": "^8.63.0",
+    "@typescript-eslint/parser": "^8.63.0",
+    "eslint": "^10.7.0",
     "globals": "^17.7.0",
     "typescript": "^5.9.3"
   },
