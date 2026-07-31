@@ -1,3 +1,8 @@
+# 2.0.124 / 2026-07-31
+
+### :tada: Enhancements
+- Updated dependencies: @sergdudko/objectstream, globals, protoobject, redux-cluster
+
 # 2.0.123 / 2026-07-24
 
 ### :tada: Enhancements
