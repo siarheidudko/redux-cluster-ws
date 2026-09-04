@@ -108,16 +108,16 @@
     "@sergdudko/objectstream": "^4.0.45",
     "protoobject": "^2.1.47",
     "redux": "^5.0.1",
-    "redux-cluster": "^2.0.93"
+    "redux-cluster": "^2.0.94"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/node": "^25.2.2",
     "@types/ws": "^8.18.1",
-    "@typescript-eslint/eslint-plugin": "^8.68.0",
-    "@typescript-eslint/parser": "^8.68.0",
-    "eslint": "^10.9.1",
-    "globals": "^17.11.0",
+    "@typescript-eslint/eslint-plugin": "^8.69.0",
+    "@typescript-eslint/parser": "^8.69.0",
+    "eslint": "^10.10.0",
+    "globals": "^17.12.0",
     "typescript": "^5.9.3"
   },
   "peerDependencies": {
