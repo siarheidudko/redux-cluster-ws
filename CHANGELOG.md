@@ -1,3 +1,8 @@
+# 2.0.130 / 2026-09-11
+
+### :tada: Enhancements
+- Updated dependencies: @typescript-eslint/eslint-plugin, @typescript-eslint/parser, redux-cluster
+
 # 2.0.129 / 2026-09-04
 
 ### :tada: Enhancements
