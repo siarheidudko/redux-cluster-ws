@@ -1,3 +1,8 @@
+# 2.0.131 / 2026-09-18
+
+### :tada: Enhancements
+- Updated dependencies: eslint, redux-cluster
+
 # 2.0.130 / 2026-09-11
 
 ### :tada: Enhancements
