@@ -1,3 +1,8 @@
+# 2.0.138 / 2026-11-06
+
+### :tada: Enhancements
+- Updated dependencies: @sergdudko/objectstream, globals, redux-cluster
+
 # 2.0.137 / 2026-10-30
 
 ### :tada: Enhancements
