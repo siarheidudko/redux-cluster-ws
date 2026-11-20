@@ -105,17 +105,17 @@
     }
   ],
   "dependencies": {
-    "@sergdudko/objectstream": "^4.0.58",
+    "@sergdudko/objectstream": "^4.0.59",
     "protoobject": "^2.1.56",
     "redux": "^5.0.1",
-    "redux-cluster": "^2.0.104"
+    "redux-cluster": "^2.0.105"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/node": "^25.2.2",
     "@types/ws": "^8.18.2",
-    "@typescript-eslint/eslint-plugin": "^8.72.2",
-    "@typescript-eslint/parser": "^8.72.2",
+    "@typescript-eslint/eslint-plugin": "^8.73.0",
+    "@typescript-eslint/parser": "^8.73.0",
     "eslint": "^10.15.0",
     "globals": "^17.14.0",
     "typescript": "^5.9.3"
